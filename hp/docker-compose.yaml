@@ -1,0 +1,11 @@
+services:
+  vcosmos-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vcosmos-dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - ~/Developer/hp/BPS-Validation/back-end:/project
+      - ~/.aws:/root/.aws
