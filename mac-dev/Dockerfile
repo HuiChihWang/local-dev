@@ -8,6 +8,8 @@ RUN apt-get install -y curl
 
 RUN apt-get install -y git
 
+RUN apt-get install -y vim
+
 # Set the working directory
 WORKDIR /app
 

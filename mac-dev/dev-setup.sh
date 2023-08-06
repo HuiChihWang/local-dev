@@ -19,18 +19,26 @@ function loginSudo() {
 # set sudo credentials
 loginSudo
 
-#install oh my zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Add brew path to zshrc
+# BREW_INSTALL_PATH="/opt/homebrew/bin"  
+BREW_INSTALL_PATH="/home/linuxbrew/.linuxbrew/bin"
+getBrewShellEnv="$BREW_INSTALL_PATH/brew shellenv"
+echo $getBrewShellEnv
+echo "eval \$($getBrewShellEnv)" >> $HOME/.zprofile
+source "$HOME"/.zprofile
 
-source "$HOME"/.zshrc
-
+brew --version
 
 # install neovim
 brew install neovim
 
-# install iterm2
-brew install --cask iterm2
+# # install iterm2
+# brew install --cask iterm2
+
+#install oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#install powerlevel10k
